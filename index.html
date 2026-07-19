@@ -286,12 +286,12 @@
         }
 
         /* ============================================
-           5. HERO — Asymmetric editorial layout
+           5. HERO — FIXED FOR MOBILE
            ============================================ */
         .hero {
             padding: 80px 0 100px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero-grid {
@@ -377,6 +377,7 @@
         .hero-visual {
             position: relative;
             height: 560px;
+            width: 100%;
         }
 
         .hero-card {
@@ -1467,36 +1468,62 @@
         .footer-bottom a:hover { color: var(--terracotta); }
 
         /* ============================================
-           18. RESPONSIVE DESIGN - FIXED MOBILE HERO
+           18. RESPONSIVE DESIGN - IMPROVED MOBILE HERO
            ============================================ */
         @media (max-width: 1024px) {
             :root { --section-pad: 90px; }
 
-            .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                gap: 50px; 
+            }
+            
             .hero-visual { 
-                height: 480px; 
+                height: auto;
+                min-height: 400px;
                 max-width: 500px; 
                 margin: 0 auto;
                 position: relative;
             }
             
-            /* Fix card positioning on tablet */
+            /* Fix card positioning on tablet - remove rotations */
+            .hero-card {
+                position: relative;
+                transform: none !important;
+                margin-bottom: 15px;
+                width: 100% !important;
+                max-width: 400px;
+            }
+            
             .hero-card.main {
-                width: 80%;
-                height: 280px;
-                transform: rotate(0deg);
+                height: auto;
+                min-height: 220px;
+                padding: 28px;
+                order: 1;
             }
+            
             .hero-card.secondary {
-                width: 60%;
-                top: 160px;
-                right: 20px;
-                transform: rotate(0deg);
+                width: 100%;
+                max-width: 300px;
+                top: auto;
+                right: auto;
+                order: 2;
+                margin: 0 auto 15px;
+                padding: 20px;
             }
+            
+            .hero-card.secondary .num {
+                font-size: 2.2rem;
+            }
+            
             .hero-card.tertiary {
-                width: 70%;
-                left: 20px;
-                bottom: 20px;
-                transform: rotate(0deg);
+                width: 100%;
+                max-width: 350px;
+                left: auto;
+                bottom: auto;
+                order: 3;
+                margin: 0 auto;
+                padding: 18px 24px;
             }
             
             .about-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -1515,25 +1542,38 @@
             .nav-wrap { flex-direction: column; gap: 16px; padding: 16px 20px; }
             .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
 
-            .hero { padding: 50px 0 70px; }
-            .hero h1 { font-size: 2.6rem; }
+            .hero { 
+                padding: 50px 0 70px;
+                overflow: visible;
+            }
             
-            /* Hide decorative cards on mobile, show simplified version */
+            .hero h1 { 
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+            
+            .hero p {
+                font-size: 1.05rem;
+            }
+            
+            /* Mobile hero visual - stacked cards */
             .hero-visual { 
                 height: auto;
-                min-height: 200px;
+                min-height: auto;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                padding: 20px;
+                padding: 20px 0;
+                gap: 15px;
             }
             
             .hero-card {
                 position: relative;
                 width: 100%;
-                max-width: 320px;
+                max-width: 100%;
                 transform: none !important;
-                margin-bottom: 15px;
+                margin: 0;
+                box-shadow: var(--shadow-md);
             }
             
             .hero-card.main {
@@ -1544,34 +1584,52 @@
             }
             
             .hero-card.main h3 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+            }
+            
+            .hero-card.main .lang-chip {
+                font-size: 0.7rem;
+                padding: 4px 10px;
             }
             
             .hero-card.secondary {
                 width: 100%;
-                max-width: 200px;
-                top: auto;
-                right: auto;
+                max-width: 100%;
                 order: 2;
-                margin: 10px auto;
+                padding: 18px 20px;
             }
             
             .hero-card.secondary .num {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .hero-card.secondary .label {
+                font-size: 0.8rem;
             }
             
             .hero-card.tertiary {
                 width: 100%;
-                max-width: 280px;
-                left: auto;
-                bottom: auto;
+                max-width: 100%;
                 order: 3;
-                margin: 10px auto 0;
                 padding: 16px 20px;
+            }
+            
+            .hero-card.tertiary .avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 0.7rem;
+            }
+            
+            .hero-card.tertiary .info strong {
+                font-size: 0.85rem;
+            }
+            
+            .hero-card.tertiary .info span {
+                font-size: 0.75rem;
             }
 
             .trust-wrap { justify-content: center; text-align: center; }
-            .trust-logos { justify-content: center; gap: 24px; }
+            .trust-logos { justify-content: center; gap: 20px; }
 
             .lang-grid { grid-template-columns: repeat(2, 1fr); }
             .programs-grid { grid-template-columns: 1fr; }
@@ -1582,20 +1640,40 @@
             .events-grid { grid-template-columns: 1fr; }
             .teachers-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .cta-card { padding: 60px 28px; }
+            .cta-card { padding: 50px 24px; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            .hero-ctas { flex-direction: column; width: 100%; }
-            .hero-ctas .btn { width: 100%; justify-content: center; }
+            .hero-ctas { 
+                flex-direction: column; 
+                width: 100%;
+                gap: 12px;
+            }
+            
+            .hero-ctas .btn { 
+                width: 100%; 
+                justify-content: center;
+                padding: 14px 24px;
+            }
+            
             .lang-grid { grid-template-columns: 1fr; }
             .method-grid { grid-template-columns: 1fr; }
             .teachers-grid { grid-template-columns: 1fr; }
             .about-stats { grid-template-columns: 1fr; gap: 16px; }
-            .cta-buttons { flex-direction: column; width: 100%; }
-            .cta-buttons .btn { width: 100%; justify-content: center; }
+            
+            .cta-buttons { 
+                flex-direction: column; 
+                width: 100%;
+                gap: 12px;
+            }
+            
+            .cta-buttons .btn { 
+                width: 100%; 
+                justify-content: center;
+            }
+            
             .footer-grid { grid-template-columns: 1fr; }
             
             /* Further simplify hero cards on small mobile */
@@ -1603,9 +1681,15 @@
                 flex-direction: column;
                 gap: 6px;
             }
+            
             .hero-card.tertiary {
                 flex-direction: column;
                 text-align: center;
+                gap: 12px;
+            }
+            
+            .hero-card.tertiary .avatars {
+                justify-content: center;
             }
         }
     </style>
@@ -1634,7 +1718,7 @@
     </header>
 
     <!-- ============================================
-         HERO SECTION — Asymmetric editorial layout
+         HERO SECTION — FIXED FOR MOBILE
          ============================================ -->
     <section class="hero">
         <div class="container">
@@ -1661,7 +1745,7 @@
                             <div class="lang-row">
                                 <span class="lang-chip">🇬🇧 English</span>
                                 <span class="lang-chip">🇪🇸 Español</span>
-                                <span class="lang-chip">🇫🇷 Français</span>
+                                <span class="lang-chip">🇷 Français</span>
                                 <span class="lang-chip">🇯 日本語</span>
                             </div>
                         </div>
@@ -1758,21 +1842,21 @@
                     <div class="lang-meta"><span>Cambridge prep</span><span>★ Most popular</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇪🇸</div>
+                    <div class="lang-flag">🇸</div>
                     <div class="lang-name">Spanish</div>
                     <div class="lang-native">"¡Hola, ¿qué tal?!"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
                     <div class="lang-meta"><span>DELE prep</span><span>12 classes/week</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇫</div>
+                    <div class="lang-flag">🇫🇷</div>
                     <div class="lang-name">French</div>
                     <div class="lang-native">"Bonjour, comment ça va?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
                     <div class="lang-meta"><span>DELF/DALF</span><span>Business French</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇩🇪</div>
+                    <div class="lang-flag">🇪</div>
                     <div class="lang-name">German</div>
                     <div class="lang-native">"Hallo, wie geht's?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span></div>
@@ -1793,7 +1877,7 @@
                     <div class="lang-meta"><span>BR & EU variants</span><span>New!</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇯</div>
+                    <div class="lang-flag">🇯🇵</div>
                     <div class="lang-name">Japanese</div>
                     <div class="lang-native">"こんにちは"</div>
                     <div class="lang-levels"><span>N5</span><span>N4</span><span>N3</span></div>
@@ -1814,7 +1898,7 @@
                     <div class="lang-meta"><span>K-culture</span><span>K-drama club</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇷</div>
+                    <div class="lang-flag">🇷🇺</div>
                     <div class="lang-name">Russian</div>
                     <div class="lang-native">"Привет"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span></div>
@@ -2008,8 +2092,8 @@
             <div class="teachers-grid">
                 <div class="teacher-card">
                     <div class="teacher-photo">
-                        👩‍
-                        <div class="teacher-flag">🇧</div>
+                        👩‍🏫
+                        <div class="teacher-flag">🇬🇧</div>
                     </div>
                     <div class="teacher-name">Emma Thompson</div>
                     <div class="teacher-role">English · Cambridge Certified</div>
@@ -2017,7 +2101,7 @@
                 </div>
                 <div class="teacher-card">
                     <div class="teacher-photo">
-                        ‍🏫
+                        👨‍🏫
                         <div class="teacher-flag">🇪🇸</div>
                     </div>
                     <div class="teacher-name">Carlos Rivera</div>
@@ -2026,8 +2110,8 @@
                 </div>
                 <div class="teacher-card">
                     <div class="teacher-photo">
-                        👩
-                        <div class="teacher-flag">🇫</div>
+                        
+                        <div class="teacher-flag">🇷</div>
                     </div>
                     <div class="teacher-name">Sophie Laurent</div>
                     <div class="teacher-role">French · Sorbonne Graduate</div>
@@ -2065,7 +2149,7 @@
                     <div class="event-meta">
                         <span>📍 Main Classroom</span>
                         <span>⏱ 3 hours</span>
-                        <span> $25 (includes food)</span>
+                        <span>💰 $25 (includes food)</span>
                     </div>
                 </div>
                 <div class="event-card">
@@ -2078,11 +2162,11 @@
                     </div>
                 </div>
                 <div class="event-card">
-                    <div class="event-date"> Friday, August 1</div>
+                    <div class="event-date">📅 Friday, August 1</div>
                     <h3 class="event-title">French Film Night: Amélie</h3>
                     <p class="event-desc">Watch the classic with French subtitles, followed by a guided discussion in French (with English support).</p>
                     <div class="event-meta">
-                        <span>⏱ 2.5 hours</span>
+                        <span> 2.5 hours</span>
                         <span>💰 Free for members</span>
                     </div>
                 </div>
@@ -2217,7 +2301,7 @@
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook">f</a>
                         <a href="#" class="social-link" aria-label="Instagram">ig</a>
-                        <a href="#" class="social-link" aria-label="Twitter"></a>
+                        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
                         <a href="#" class="social-link" aria-label="YouTube">▶</a>
                         <a href="#" class="social-link" aria-label="TikTok">♪</a>
                     </div>
