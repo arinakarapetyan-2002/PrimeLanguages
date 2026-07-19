@@ -548,33 +548,15 @@
 
         .about-image {
             position: relative;
-            aspect-ratio: 4/5;
-            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
             border-radius: var(--radius-xl);
             overflow: hidden;
-            display: grid;
-            place-items: center;
-            color: var(--cream);
+            box-shadow: var(--shadow-lg);
         }
 
-        .about-image .big-emoji {
-            font-size: 10rem;
-            opacity: 0.9;
-        }
-
-        .about-image .stamp {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            background: var(--terracotta);
-            color: white;
-            padding: 14px 20px;
-            border-radius: var(--radius-md);
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 1.1rem;
-            transform: rotate(-4deg);
-            box-shadow: var(--shadow-md);
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .about-content h2 {
@@ -1592,9 +1574,9 @@
                             <h3>12 languages.<br>One community.</h3>
                             <div class="lang-row">
                                 <span class="lang-chip">🇬🇧 English</span>
-                                <span class="lang-chip">🇪🇸 Español</span>
-                                <span class="lang-chip">🇫🇷 Français</span>
-                                <span class="lang-chip">🇯🇵 日本語</span>
+                                <span class="lang-chip">🇪 Español</span>
+                                <span class="lang-chip">🇫 Français</span>
+                                <span class="lang-chip">🇯 日本語</span>
                             </div>
                         </div>
                     </div>
@@ -1637,14 +1619,13 @@
     </section>
 
     <!-- ============================================
-         ABOUT / OUR STORY
+         ABOUT / OUR STORY - WITH YOUR BANNER IMAGE
          ============================================ -->
     <section class="section" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">https://cdn.shopify.com/s/files/1/0692/0080/5931/files/1784485399.png?v=1784485765
-                    <div class="big-emoji">📖</div>
-                    <div class="stamp">Since 2011 ✦</div>
+                <div class="about-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0692/0080/5931/files/1784485399.png?v=1784485765" alt="PrimeLanguages students learning together">
                 </div>
                 <div class="about-content">
                     <span class="eyebrow">Our Story</span>
@@ -1684,7 +1665,7 @@
 
             <div class="lang-grid">
                 <div class="lang-card">
-                    <div class="lang-flag">🇬🇧</div>
+                    <div class="lang-flag">🇧</div>
                     <div class="lang-name">English</div>
                     <div class="lang-native">"Hello, how are you?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div>
@@ -1698,7 +1679,7 @@
                     <div class="lang-meta"><span>DELE prep</span><span>12 classes/week</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇫🇷</div>
+                    <div class="lang-flag">🇫</div>
                     <div class="lang-name">French</div>
                     <div class="lang-native">"Bonjour, comment ça va?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
@@ -1747,7 +1728,7 @@
                     <div class="lang-meta"><span>K-culture</span><span>K-drama club</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇷🇺</div>
+                    <div class="lang-flag">🇺</div>
                     <div class="lang-name">Russian</div>
                     <div class="lang-native">"Привет"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span></div>
@@ -1761,7 +1742,7 @@
                     <div class="lang-meta"><span>MSA + dialects</span><span>Script workshop</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇳🇱</div>
+                    <div class="lang-flag">🇳</div>
                     <div class="lang-name">Dutch</div>
                     <div class="lang-native">"Hallo, hoe gaat het?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span></div>
@@ -1941,8 +1922,8 @@
             <div class="teachers-grid">
                 <div class="teacher-card">
                     <div class="teacher-photo">
-                        👩‍🏫
-                        <div class="teacher-flag">🇬🇧</div>
+                        👩‍
+                        <div class="teacher-flag">🇧</div>
                     </div>
                     <div class="teacher-name">Emma Thompson</div>
                     <div class="teacher-role">English · Cambridge Certified</div>
@@ -1950,8 +1931,8 @@
                 </div>
                 <div class="teacher-card">
                     <div class="teacher-photo">
-                        👨‍🏫
-                        <div class="teacher-flag">🇪🇸</div>
+                        👨‍
+                        <div class="teacher-flag">🇸</div>
                     </div>
                     <div class="teacher-name">Carlos Rivera</div>
                     <div class="teacher-role">Spanish · Madrid Native</div>
@@ -2011,7 +1992,7 @@
                     </div>
                 </div>
                 <div class="event-card">
-                    <div class="event-date">📅 Friday, August 1</div>
+                    <div class="event-date"> Friday, August 1</div>
                     <h3 class="event-title">French Film Night: Amélie</h3>
                     <p class="event-desc">Watch the classic with French subtitles, followed by a guided discussion in French (with English support).</p>
                     <div class="event-meta">
