@@ -6,45 +6,63 @@
     <meta name="description" content="PrimeLanguages - A warm, expert-led language center for kids, teens, and adults. Learn 12+ languages with native teachers.">
     <title>PrimeLanguages — Where the world comes to talk</title>
 
+    <!-- Google Fonts: DM Serif Display (editorial headings) + Plus Jakarta Sans (friendly body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ============================================
-           1. DESIGN TOKENS
+           1. DESIGN TOKENS (Warm Editorial Palette)
            ============================================ */
         :root {
+            /* Warm cream background family */
             --cream: #FAF6EF;
             --cream-deep: #F2EBDD;
             --paper: #FFFDF9;
+
+            /* Ink & neutrals */
             --ink: #1A1A1A;
             --ink-soft: #3D3D3D;
             --muted: #8A8578;
             --line: #E8E1D2;
-            --emerald: #0F4C3A;
+
+            /* Brand colors */
+            --emerald: #0F4C3A;       /* Deep forest green */
             --emerald-dark: #0A3528;
             --emerald-light: #E8F0EC;
-            --terracotta: #E8634A;
+            --terracotta: #E8634A;    /* Warm coral accent */
             --terracotta-dark: #C94D36;
-            --gold: #D4A574;
+            --gold: #D4A574;          /* Warm accent */
+
+            /* Shadows & radii */
             --shadow-xs: 0 1px 2px rgba(26, 26, 26, 0.04);
             --shadow-sm: 0 4px 12px rgba(26, 26, 26, 0.05);
             --shadow-md: 0 12px 32px rgba(26, 26, 26, 0.08);
             --shadow-lg: 0 24px 60px rgba(26, 26, 26, 0.12);
+
             --radius-sm: 10px;
             --radius-md: 18px;
             --radius-lg: 28px;
             --radius-xl: 40px;
             --radius-full: 999px;
+
+            /* Typography */
             --font-serif: 'DM Serif Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
             --container: 1240px;
             --section-pad: 120px;
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         html { scroll-behavior: smooth; }
+
         body {
             font-family: var(--font-sans);
             font-size: 16px;
@@ -54,6 +72,7 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
+
         img { max-width: 100%; display: block; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
@@ -61,96 +80,213 @@
         /* ============================================
            2. GLOBAL UTILITIES
            ============================================ */
-        .container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
-        .section { padding: var(--section-pad) 0; position: relative; }
-        .section-head { max-width: 720px; margin: 0 auto 70px; text-align: center; }
-        .section-head.left { text-align: left; margin-left: 0; }
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .section {
+            padding: var(--section-pad) 0;
+            position: relative;
+        }
+
+        .section-head {
+            max-width: 720px;
+            margin: 0 auto 70px;
+            text-align: center;
+        }
+
+        .section-head.left {
+            text-align: left;
+            margin-left: 0;
+        }
 
         .eyebrow {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--emerald); margin-bottom: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--emerald);
+            margin-bottom: 18px;
         }
+
         .eyebrow::before {
-            content: ''; width: 24px; height: 2px;
-            background: var(--terracotta); display: inline-block;
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--terracotta);
+            display: inline-block;
         }
 
         .section-title {
             font-family: var(--font-serif);
             font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-            font-weight: 400; line-height: 1.1;
-            letter-spacing: -0.01em; color: var(--ink);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--ink);
             margin-bottom: 20px;
         }
-        .section-title em { font-style: italic; color: var(--emerald); }
-        .section-sub {
-            font-size: 1.08rem; color: var(--ink-soft);
-            line-height: 1.7; max-width: 580px; margin: 0 auto;
+
+        .section-title em {
+            font-style: italic;
+            color: var(--emerald);
         }
+
+        .section-sub {
+            font-size: 1.08rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
         .section-head.left .section-sub { margin: 0; }
 
         /* ============================================
            3. BUTTONS
            ============================================ */
         .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 30px; font-family: var(--font-sans);
-            font-size: 0.95rem; font-weight: 600;
-            border-radius: var(--radius-full); cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 30px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             white-space: nowrap;
         }
-        .btn-dark { background: var(--ink); color: var(--cream); }
-        .btn-dark:hover { background: var(--emerald); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-        .btn-cream { background: var(--cream); color: var(--ink); }
-        .btn-cream:hover { background: var(--paper); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-        .btn-terracotta { background: var(--terracotta); color: white; }
-        .btn-terracotta:hover { background: var(--terracotta-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(232, 99, 74, 0.35); }
-        .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
-        .btn-ghost:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
-        .btn .arrow { transition: transform 0.3s ease; }
-        .btn:hover .arrow { transform: translateX(4px); }
+
+        .btn-dark {
+            background: var(--ink);
+            color: var(--cream);
+        }
+        .btn-dark:hover {
+            background: var(--emerald);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-cream {
+            background: var(--cream);
+            color: var(--ink);
+        }
+        .btn-cream:hover {
+            background: var(--paper);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-terracotta {
+            background: var(--terracotta);
+            color: white;
+        }
+        .btn-terracotta:hover {
+            background: var(--terracotta-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(232, 99, 74, 0.35);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+        .btn-ghost:hover {
+            background: var(--ink);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .btn .arrow {
+            transition: transform 0.3s ease;
+        }
+        .btn:hover .arrow {
+            transform: translateX(4px);
+        }
 
         /* ============================================
            4. NAVIGATION
            ============================================ */
         .navbar {
-            position: sticky; top: 0; z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             background: rgba(250, 246, 239, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--line);
         }
+
         .nav-wrap {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 18px 28px; max-width: var(--container); margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 28px;
+            max-width: var(--container);
+            margin: 0 auto;
         }
+
         .logo {
-            display: flex; align-items: center; gap: 10px;
-            font-family: var(--font-serif); font-size: 1.45rem;
-            color: var(--ink); letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            color: var(--ink);
+            letter-spacing: -0.01em;
         }
+
         .logo-mark {
-            width: 38px; height: 38px;
-            background: var(--emerald); color: var(--cream);
-            border-radius: 50%; display: grid; place-items: center;
-            font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;
+            width: 38px;
+            height: 38px;
+            background: var(--emerald);
+            color: var(--cream);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-style: italic;
         }
-        .nav-links { display: flex; gap: 36px; align-items: center; }
-        .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--ink-soft); transition: color 0.25s ease; }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            transition: color 0.25s ease;
+        }
+
         .nav-links a:hover { color: var(--emerald); }
+
         .nav-cta {
-            padding: 11px 22px !important; background: var(--ink);
-            color: var(--cream) !important; border-radius: var(--radius-full);
+            padding: 11px 22px !important;
+            background: var(--ink);
+            color: var(--cream) !important;
+            border-radius: var(--radius-full);
             font-size: 0.88rem !important;
         }
-        .nav-cta:hover { background: var(--terracotta) !important; color: white !important; }
+        .nav-cta:hover {
+            background: var(--terracotta) !important;
+            color: white !important;
+        }
 
         /* ============================================
-           5. HERO — NEW BENTO GRID DESIGN
+           5. HERO — FIXED FOR MOBILE
            ============================================ */
         .hero {
             padding: 80px 0 100px;
@@ -160,24 +296,34 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
             align-items: center;
         }
 
         .hero-tag {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--paper); border: 1px solid var(--line);
-            padding: 8px 16px; border-radius: var(--radius-full);
-            font-size: 0.82rem; font-weight: 600; color: var(--ink-soft);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink-soft);
             margin-bottom: 28px;
         }
+
         .hero-tag .pulse {
-            width: 8px; height: 8px;
-            background: var(--terracotta); border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            background: var(--terracotta);
+            border-radius: 50%;
             box-shadow: 0 0 0 0 rgba(232, 99, 74, 0.6);
             animation: pulse 2s infinite;
         }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(232, 99, 74, 0.6); }
             70% { box-shadow: 0 0 0 10px rgba(232, 99, 74, 0); }
@@ -187,334 +333,168 @@
         .hero h1 {
             font-family: var(--font-serif);
             font-size: clamp(2.8rem, 6vw, 5rem);
-            font-weight: 400; line-height: 1.02;
-            letter-spacing: -0.02em; color: var(--ink);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.02em;
+            color: var(--ink);
             margin-bottom: 28px;
         }
+
         .hero h1 em {
-            font-style: italic; color: var(--emerald);
+            font-style: italic;
+            color: var(--emerald);
             position: relative;
         }
-        .hero h1 em::after {
-            content: ''; position: absolute;
-            left: 0; bottom: 4px; width: 100%; height: 8px;
-            background: var(--terracotta); opacity: 0.25; z-index: -1;
-        }
-        .hero p {
-            font-size: 1.15rem; color: var(--ink-soft);
-            line-height: 1.7; max-width: 520px; margin-bottom: 36px;
-        }
-        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
 
-        /* ============================================
-           NEW BENTO GRID VISUAL
-           ============================================ */
+        .hero h1 em::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            width: 100%;
+            height: 8px;
+            background: var(--terracotta);
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 36px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        /* Hero right side — stacked cards */
         .hero-visual {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-            gap: 16px;
+            position: relative;
             height: 560px;
             width: 100%;
-            position: relative;
         }
 
-        /* Decorative background blob */
-        .hero-visual::before {
-            content: '';
+        .hero-card {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--emerald-light) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            border-radius: 50%;
+            background: var(--paper);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 22px;
+            transition: transform 0.4s ease;
         }
 
-        /* Base bento card style */
-        .bento {
-            position: relative;
-            z-index: 1;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+        .hero-card:hover { transform: translateY(-6px) rotate(0deg) !important; }
+
+        .hero-card.main {
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 320px;
+            background: var(--emerald);
+            color: var(--cream);
             display: flex;
             flex-direction: column;
-        }
-
-        .bento:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Card 1: Main - Globe / Languages (spans 4 cols, 4 rows) */
-        .bento-main {
-            grid-column: 1 / span 4;
-            grid-row: 1 / span 4;
-            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
-            color: var(--cream);
             justify-content: space-between;
-            box-shadow: var(--shadow-lg);
+            padding: 32px;
+            transform: rotate(-2deg);
         }
 
-        .bento-main::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(232, 99, 74, 0.3) 0%, transparent 70%);
-            top: -50px;
-            right: -50px;
-            border-radius: 50%;
+        .hero-card.main .globe {
+            font-size: 4rem;
         }
 
-        .bento-main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            position: relative;
-            z-index: 2;
-        }
-
-        .bento-main-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 8px;
-        }
-
-        .bento-main-icon {
-            font-size: 3rem;
-            line-height: 1;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(5deg); }
-        }
-
-        .bento-main h3 {
+        .hero-card.main h3 {
             font-family: var(--font-serif);
-            font-size: 2rem;
-            line-height: 1.1;
-            margin-bottom: 18px;
-            position: relative;
-            z-index: 2;
+            font-size: 1.8rem;
+            line-height: 1.15;
         }
 
-        .bento-main h3 em {
-            font-style: italic;
-            color: var(--terracotta);
-        }
-
-        .bento-lang-chips {
+        .hero-card.main .lang-row {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
-            position: relative;
-            z-index: 2;
+            flex-wrap: wrap;
+            margin-top: 18px;
         }
 
-        .bento-lang-chip {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 6px 14px;
+        .hero-card.main .lang-chip {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
             border-radius: var(--radius-full);
             font-size: 0.78rem;
             font-weight: 500;
-            transition: all 0.3s ease;
         }
 
-        .bento-main:hover .bento-lang-chip {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Card 2: Stats - 98% (spans 2 cols, 2 rows) */
-        .bento-stats {
-            grid-column: 5 / span 2;
-            grid-row: 1 / span 2;
+        .hero-card.secondary {
+            top: 180px;
+            right: 0;
+            width: 55%;
             background: var(--terracotta);
             color: white;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: var(--shadow-md);
+            padding: 24px;
+            transform: rotate(3deg);
         }
 
-        .bento-stats-num {
+        .hero-card.secondary .num {
             font-family: var(--font-serif);
-            font-size: 3.2rem;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .bento-stats-label {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        /* Card 3: Students count (spans 2 cols, 2 rows) */
-        .bento-students {
-            grid-column: 5 / span 2;
-            grid-row: 3 / span 2;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .bento-students-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .bento-students-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--emerald-light);
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            font-size: 1.2rem;
-        }
-
-        .bento-students-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .bento-students-num {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
-            color: var(--ink);
-            margin-bottom: 12px;
-        }
-
-        .bento-avatars {
-            display: flex;
-            align-items: center;
-        }
-
-        .bento-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-weight: 700;
-            font-size: 0.72rem;
-            color: white;
-            border: 2px solid var(--paper);
-            margin-left: -8px;
-        }
-        .bento-avatar:first-child { margin-left: 0; }
-        .bento-avatar:nth-child(1) { background: var(--terracotta); }
-        .bento-avatar:nth-child(2) { background: var(--gold); }
-        .bento-avatar:nth-child(3) { background: var(--emerald); }
-        .bento-avatar:nth-child(4) { background: var(--ink); }
-
-        .bento-students-more {
-            font-size: 0.78rem;
-            color: var(--muted);
-            margin-left: 10px;
-        }
-
-        /* Card 4: Language flags (spans 3 cols, 2 rows) */
-        .bento-flags {
-            grid-column: 1 / span 3;
-            grid-row: 5 / span 2;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow-sm);
-            flex-direction: row;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .bento-flags-icon {
-            font-size: 2.2rem;
-            flex-shrink: 0;
-        }
-
-        .bento-flags-content {
-            flex: 1;
-        }
-
-        .bento-flags-title {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            color: var(--ink);
-            margin-bottom: 4px;
-        }
-
-        .bento-flags-sub {
-            font-size: 0.78rem;
-            color: var(--muted);
-        }
-
-        .bento-flags-arrow {
-            width: 36px;
-            height: 36px;
-            background: var(--emerald-light);
-            color: var(--emerald);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .bento-flags:hover .bento-flags-arrow {
-            background: var(--emerald);
-            color: white;
-            transform: translateX(4px);
-        }
-
-        /* Card 5: Rating (spans 3 cols, 2 rows) */
-        .bento-rating {
-            grid-column: 4 / span 3;
-            grid-row: 5 / span 2;
-            background: linear-gradient(135deg, #1A1A1A 0%, #3D3D3D 100%);
-            color: var(--cream);
-            box-shadow: var(--shadow-md);
-        }
-
-        .bento-rating-stars {
-            color: var(--gold);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .bento-rating-num {
-            font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 2.8rem;
             line-height: 1;
             margin-bottom: 6px;
         }
 
-        .bento-rating-text {
+        .hero-card.secondary .label {
+            font-size: 0.88rem;
+            opacity: 0.9;
+        }
+
+        .hero-card.tertiary {
+            bottom: 0;
+            left: 40px;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transform: rotate(-1deg);
+        }
+
+        .hero-card.tertiary .avatars {
+            display: flex;
+        }
+
+        .hero-card.tertiary .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--emerald-light);
+            color: var(--emerald);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
             font-size: 0.82rem;
-            opacity: 0.8;
+            border: 2px solid var(--paper);
+            margin-left: -10px;
+        }
+        .hero-card.tertiary .avatar:first-child { margin-left: 0; background: var(--terracotta); color: white; }
+        .hero-card.tertiary .avatar:nth-child(2) { background: var(--gold); color: white; }
+        .hero-card.tertiary .avatar:nth-child(3) { background: var(--emerald); color: white; }
+
+        .hero-card.tertiary .info strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
+        .hero-card.tertiary .info span {
+            font-size: 0.8rem;
+            color: var(--muted);
         }
 
         /* ============================================
-           6. TRUST BAR
+           6. TRUST / ACCREDITATION BAR
            ============================================ */
         .trust {
             padding: 40px 0;
@@ -522,405 +502,1030 @@
             border-top: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
         }
+
         .trust-wrap {
-            display: flex; align-items: center; justify-content: space-between;
-            flex-wrap: wrap; gap: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
         }
+
         .trust-label {
-            font-size: 0.82rem; font-weight: 600;
-            color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
-        .trust-logos { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
+
+        .trust-logos {
+            display: flex;
+            gap: 44px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .trust-item {
-            font-family: var(--font-serif); font-size: 1.2rem;
-            color: var(--ink-soft); font-style: italic; opacity: 0.7;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+            font-style: italic;
+            opacity: 0.7;
             transition: opacity 0.3s ease;
         }
+
         .trust-item:hover { opacity: 1; color: var(--emerald); }
 
         /* ============================================
-           7. ABOUT
+           7. ABOUT / OUR STORY
            ============================================ */
         .about-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 80px; align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
+
         .about-image {
-            position: relative; border-radius: var(--radius-xl);
-            overflow: hidden; box-shadow: var(--shadow-lg);
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
-        .about-image img { width: 100%; height: auto; display: block; }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .about-content h2 {
             font-family: var(--font-serif);
             font-size: clamp(2rem, 4vw, 3rem);
-            line-height: 1.1; margin-bottom: 24px;
+            line-height: 1.1;
+            margin-bottom: 24px;
         }
-        .about-content h2 em { color: var(--emerald); font-style: italic; }
+
+        .about-content h2 em {
+            color: var(--emerald);
+            font-style: italic;
+        }
+
         .about-content p {
-            color: var(--ink-soft); font-size: 1.05rem;
-            line-height: 1.8; margin-bottom: 18px;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
         }
+
         .about-stats {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 20px; margin-top: 36px; padding-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 36px;
+            padding-top: 36px;
             border-top: 1px solid var(--line);
         }
+
         .about-stat .num {
-            font-family: var(--font-serif); font-size: 2.4rem;
-            color: var(--emerald); line-height: 1; margin-bottom: 6px;
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            color: var(--emerald);
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        .about-stat .label { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+        .about-stat .label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
 
         /* ============================================
-           8. LANGUAGES
+           8. LANGUAGES OFFERED (Expanded)
            ============================================ */
-        .languages { background: var(--paper); }
-        .lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-        .lang-card {
-            background: var(--cream); border: 1px solid var(--line);
-            border-radius: var(--radius-md); padding: 28px 24px;
-            transition: all 0.35s ease; position: relative; overflow: hidden;
+        .languages {
+            background: var(--paper);
         }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .lang-card {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 28px 24px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
         .lang-card::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 4px; height: 0; background: var(--terracotta);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--terracotta);
             transition: height 0.35s ease;
         }
-        .lang-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--emerald); }
-        .lang-card:hover::before { height: 100%; }
-        .lang-flag { font-size: 2.4rem; margin-bottom: 14px; display: inline-block; transition: transform 0.35s ease; }
-        .lang-card:hover .lang-flag { transform: scale(1.15); }
-        .lang-name { font-family: var(--font-serif); font-size: 1.35rem; color: var(--ink); margin-bottom: 4px; }
-        .lang-native { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 14px; }
-        .lang-levels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-        .lang-levels span {
-            font-size: 0.72rem; font-weight: 600;
-            background: var(--emerald-light); color: var(--emerald);
-            padding: 4px 10px; border-radius: var(--radius-full);
+
+        .lang-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--emerald);
         }
+
+        .lang-card:hover::before { height: 100%; }
+
+        .lang-flag {
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+            display: inline-block;
+            transition: transform 0.35s ease;
+        }
+
+        .lang-card:hover .lang-flag { transform: scale(1.15); }
+
+        .lang-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .lang-native {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 14px;
+        }
+
+        .lang-levels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .lang-levels span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: var(--emerald-light);
+            color: var(--emerald);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+        }
+
         .lang-meta {
-            font-size: 0.82rem; color: var(--ink-soft);
-            display: flex; justify-content: space-between;
-            padding-top: 12px; border-top: 1px dashed var(--line);
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            display: flex;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px dashed var(--line);
         }
 
         /* ============================================
-           9. PROGRAMS
+           9. PROGRAMS BY AGE
            ============================================ */
-        .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
         .program-card {
-            background: var(--paper); border-radius: var(--radius-lg);
-            padding: 40px 32px; border: 1px solid var(--line);
-            transition: all 0.4s ease; position: relative; overflow: hidden;
+            background: var(--paper);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            border: 1px solid var(--line);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
+
         .program-card::after {
-            content: ''; position: absolute; inset: 0;
-            background: var(--emerald); opacity: 0;
-            transition: opacity 0.4s ease; z-index: 0;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--emerald);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
         }
+
         .program-card > * { position: relative; z-index: 1; transition: color 0.4s ease; }
+
         .program-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
         .program-card:hover::after { opacity: 1; }
         .program-card:hover * { color: var(--cream); }
         .program-card:hover .program-icon { background: rgba(255,255,255,0.15); }
         .program-card:hover .program-age { color: var(--terracotta); }
         .program-card:hover .program-features li::before { color: var(--terracotta); }
+
         .program-icon {
-            width: 64px; height: 64px; border-radius: var(--radius-md);
-            background: var(--emerald-light); display: grid; place-items: center;
-            font-size: 1.8rem; margin-bottom: 24px; transition: background 0.4s ease;
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            background: var(--emerald-light);
+            display: grid;
+            place-items: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            transition: background 0.4s ease;
         }
+
         .program-age {
-            font-size: 0.78rem; font-weight: 700; color: var(--terracotta);
-            letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--terracotta);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
             transition: color 0.4s ease;
         }
-        .program-title { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 14px; color: var(--ink); }
-        .program-desc { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; margin-bottom: 22px; }
-        .program-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
-        .program-features li {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 0.88rem; color: var(--ink-soft);
+
+        .program-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            color: var(--ink);
         }
+
+        .program-desc {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .program-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+        }
+
         .program-features li::before {
-            content: '✓'; color: var(--emerald); font-weight: 700;
+            content: '✓';
+            color: var(--emerald);
+            font-weight: 700;
             transition: color 0.4s ease;
         }
 
         /* ============================================
-           10. METHODOLOGY
+           10. TEACHING METHODOLOGY (NEW)
            ============================================ */
         .methodology {
-            background: var(--emerald); color: var(--cream);
-            position: relative; overflow: hidden;
+            background: var(--emerald);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
+
         .methodology::before {
-            content: ''; position: absolute;
-            width: 500px; height: 500px; background: var(--terracotta);
-            border-radius: 50%; filter: blur(150px); opacity: 0.2;
-            top: -200px; right: -200px;
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            top: -200px;
+            right: -200px;
         }
+
         .methodology .section-title { color: var(--cream); }
         .methodology .section-title em { color: var(--terracotta); }
         .methodology .section-sub { color: rgba(250, 246, 239, 0.8); }
         .methodology .eyebrow { color: var(--terracotta); }
         .methodology .eyebrow::before { background: var(--cream); }
-        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 2; }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
         .method-card {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: var(--radius-md); padding: 32px 24px;
-            transition: all 0.35s ease; backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(10px);
         }
+
         .method-card:hover {
             background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-6px); border-color: var(--terracotta);
+            transform: translateY(-6px);
+            border-color: var(--terracotta);
         }
+
         .method-num {
-            font-family: var(--font-serif); font-size: 3rem;
-            color: var(--terracotta); line-height: 1; margin-bottom: 16px; font-style: italic;
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--terracotta);
+            line-height: 1;
+            margin-bottom: 16px;
+            font-style: italic;
         }
-        .method-title { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px; color: var(--cream); }
-        .method-text { font-size: 0.9rem; line-height: 1.7; color: rgba(250, 246, 239, 0.75); }
+
+        .method-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--cream);
+        }
+
+        .method-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(250, 246, 239, 0.75);
+        }
 
         /* ============================================
-           11. PRICING
+           11. PRICING PLANS (NEW)
            ============================================ */
-        .pricing { background: var(--paper); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+        .pricing {
+            background: var(--paper);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
         .price-card {
-            background: var(--cream); border: 1px solid var(--line);
-            border-radius: var(--radius-lg); padding: 40px 32px;
-            transition: all 0.35s ease; display: flex; flex-direction: column;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
         }
-        .price-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
         .price-card.featured {
-            background: var(--ink); color: var(--cream);
-            border-color: var(--ink); position: relative; transform: scale(1.03);
+            background: var(--ink);
+            color: var(--cream);
+            border-color: var(--ink);
+            position: relative;
+            transform: scale(1.03);
         }
+
         .price-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+
         .price-badge {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--terracotta); color: white; padding: 6px 18px;
-            border-radius: var(--radius-full); font-size: 0.75rem;
-            font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--terracotta);
+            color: white;
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
-        .price-name { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px; }
-        .price-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; }
+
+        .price-name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .price-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
         .price-card.featured .price-desc { color: rgba(250, 246, 239, 0.7); }
-        .price-amount { font-family: var(--font-serif); font-size: 3.2rem; line-height: 1; margin-bottom: 4px; }
-        .price-amount span { font-size: 1rem; font-family: var(--font-sans); font-weight: 400; color: var(--muted); }
+
+        .price-amount {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .price-amount span {
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            color: var(--muted);
+        }
+
         .price-card.featured .price-amount span { color: rgba(250, 246, 239, 0.6); }
-        .price-period { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
+
+        .price-period {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
         .price-card.featured .price-period { color: rgba(250, 246, 239, 0.6); }
-        .price-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex-grow: 1; }
-        .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--ink-soft); }
+
+        .price-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+        }
+
         .price-card.featured .price-features li { color: rgba(250, 246, 239, 0.85); }
-        .price-features li::before { content: '✓'; color: var(--emerald); font-weight: 700; flex-shrink: 0; }
+
+        .price-features li::before {
+            content: '✓';
+            color: var(--emerald);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
         .price-card.featured .price-features li::before { color: var(--terracotta); }
 
         /* ============================================
-           12. TEACHERS
+           12. TEACHERS SHOWCASE (NEW)
            ============================================ */
-        .teachers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .teacher-card { text-align: center; transition: transform 0.35s ease; }
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .teacher-card {
+            text-align: center;
+            transition: transform 0.35s ease;
+        }
+
         .teacher-card:hover { transform: translateY(-8px); }
+
         .teacher-photo {
             aspect-ratio: 1;
             background: linear-gradient(135deg, var(--emerald-light) 0%, var(--cream-deep) 100%);
-            border-radius: var(--radius-lg); margin-bottom: 18px;
-            display: grid; place-items: center; font-size: 4rem;
-            position: relative; overflow: hidden; transition: all 0.35s ease;
+            border-radius: var(--radius-lg);
+            margin-bottom: 18px;
+            display: grid;
+            place-items: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
         }
+
         .teacher-card:hover .teacher-photo {
             background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
         }
+
         .teacher-flag {
-            position: absolute; bottom: 14px; right: 14px;
-            background: var(--paper); padding: 6px 10px;
-            border-radius: var(--radius-full); font-size: 1.1rem;
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: var(--paper);
+            padding: 6px 10px;
+            border-radius: var(--radius-full);
+            font-size: 1.1rem;
             box-shadow: var(--shadow-sm);
         }
-        .teacher-name { font-family: var(--font-serif); font-size: 1.3rem; color: var(--ink); margin-bottom: 4px; }
-        .teacher-role { font-size: 0.85rem; color: var(--terracotta); font-weight: 600; margin-bottom: 6px; }
-        .teacher-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+        .teacher-name {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .teacher-role {
+            font-size: 0.85rem;
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .teacher-bio {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
 
         /* ============================================
-           13. EVENTS
+           13. EVENTS & WORKSHOPS (NEW)
            ============================================ */
-        .events { background: var(--paper); }
-        .events-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
+        .events {
+            background: var(--paper);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 20px;
+        }
+
         .event-card {
-            background: var(--cream); border: 1px solid var(--line);
-            border-radius: var(--radius-lg); padding: 30px;
-            transition: all 0.35s ease; display: flex; flex-direction: column;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
         }
-        .event-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--emerald); }
-        .event-card.featured { background: var(--emerald); color: var(--cream); border-color: var(--emerald); }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--emerald);
+        }
+
+        .event-card.featured {
+            background: var(--emerald);
+            color: var(--cream);
+            border-color: var(--emerald);
+        }
+
         .event-date {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.8rem; font-weight: 600; color: var(--terracotta);
-            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--terracotta);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
         }
+
         .event-card.featured .event-date { color: var(--terracotta); }
-        .event-title { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.2; margin-bottom: 12px; }
-        .event-card.featured .event-title { font-size: 2rem; }
-        .event-desc { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 20px; flex-grow: 1; }
-        .event-card.featured .event-desc { color: rgba(250, 246, 239, 0.8); }
-        .event-meta {
-            display: flex; gap: 16px; font-size: 0.82rem; color: var(--muted);
-            padding-top: 16px; border-top: 1px solid var(--line);
+
+        .event-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 12px;
         }
+
+        .event-card.featured .event-title { font-size: 2rem; }
+
+        .event-desc {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .event-card.featured .event-desc { color: rgba(250, 246, 239, 0.8); }
+
+        .event-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
         .event-card.featured .event-meta {
-            color: rgba(250, 246, 239, 0.7); border-top-color: rgba(255,255,255,0.15);
+            color: rgba(250, 246, 239, 0.7);
+            border-top-color: rgba(255,255,255,0.15);
         }
 
         /* ============================================
            14. TESTIMONIALS
            ============================================ */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
         .testimonial {
-            background: var(--paper); border: 1px solid var(--line);
-            border-radius: var(--radius-lg); padding: 36px 30px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
             transition: all 0.35s ease;
         }
-        .testimonial:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .stars { color: var(--terracotta); letter-spacing: 3px; margin-bottom: 16px; font-size: 0.95rem; }
+
+        .testimonial:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stars {
+            color: var(--terracotta);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
         .testimonial-text {
-            font-family: var(--font-serif); font-size: 1.15rem;
-            line-height: 1.55; color: var(--ink); margin-bottom: 26px; font-style: italic;
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            line-height: 1.55;
+            color: var(--ink);
+            margin-bottom: 26px;
+            font-style: italic;
         }
+
         .testimonial-author {
-            display: flex; align-items: center; gap: 14px;
-            padding-top: 20px; border-top: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
         }
+
         .author-avatar {
-            width: 48px; height: 48px; border-radius: 50%;
-            background: var(--emerald); color: var(--cream);
-            display: grid; place-items: center; font-weight: 700; font-size: 0.95rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--emerald);
+            color: var(--cream);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 0.95rem;
         }
-        .author-name { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
-        .author-role { font-size: 0.82rem; color: var(--muted); }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 0.95rem;
+        }
+
+        .author-role {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
 
         /* ============================================
-           15. FAQ
+           15. FAQ (NEW)
            ============================================ */
-        .faq { background: var(--paper); }
-        .faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; align-items: start; }
-        .faq-list { display: flex; flex-direction: column; gap: 14px; }
+        .faq {
+            background: var(--paper);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
         .faq-item {
-            background: var(--cream); border: 1px solid var(--line);
-            border-radius: var(--radius-md); padding: 22px 26px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 22px 26px;
             transition: all 0.3s ease;
         }
-        .faq-item:hover { border-color: var(--emerald); transform: translateX(4px); }
+
+        .faq-item:hover {
+            border-color: var(--emerald);
+            transform: translateX(4px);
+        }
+
         .faq-q {
-            font-family: var(--font-serif); font-size: 1.15rem;
-            color: var(--ink); margin-bottom: 10px;
-            display: flex; align-items: flex-start; gap: 12px;
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--ink);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
+
         .faq-q::before {
-            content: 'Q'; flex-shrink: 0; width: 28px; height: 28px;
-            background: var(--emerald); color: var(--cream);
-            border-radius: 50%; display: grid; place-items: center;
-            font-family: var(--font-sans); font-size: 0.8rem;
-            font-weight: 700; font-style: normal;
+            content: 'Q';
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--emerald);
+            color: var(--cream);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-style: normal;
         }
-        .faq-a { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.7; padding-left: 40px; }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            padding-left: 40px;
+        }
 
         /* ============================================
            16. CTA
            ============================================ */
-        .cta { padding: 100px 0; }
+        .cta {
+            padding: 100px 0;
+        }
+
         .cta-card {
-            background: var(--ink); color: var(--cream);
-            border-radius: var(--radius-xl); padding: 90px 60px;
-            text-align: center; position: relative; overflow: hidden;
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: var(--radius-xl);
+            padding: 90px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
         .cta-card::before {
-            content: ''; position: absolute;
-            width: 400px; height: 400px; background: var(--terracotta);
-            border-radius: 50%; filter: blur(140px); opacity: 0.3;
-            top: -150px; left: -100px;
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.3;
+            top: -150px;
+            left: -100px;
         }
+
         .cta-card::after {
-            content: ''; position: absolute;
-            width: 300px; height: 300px; background: var(--emerald);
-            border-radius: 50%; filter: blur(120px); opacity: 0.4;
-            bottom: -100px; right: -50px;
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--emerald);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            bottom: -100px;
+            right: -50px;
         }
-        .cta-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
-        .cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1; margin-bottom: 20px; }
-        .cta h2 em { color: var(--terracotta); font-style: italic; }
-        .cta p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 36px; line-height: 1.7; }
-        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .cta h2 em {
+            color: var(--terracotta);
+            font-style: italic;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
         /* ============================================
-           17. FOOTER
+           17. FOOTER (Expanded)
            ============================================ */
-        .footer { background: var(--ink); color: rgba(250, 246, 239, 0.7); padding: 90px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-brand .logo { color: var(--cream); margin-bottom: 18px; }
-        .footer-brand p { font-size: 0.92rem; line-height: 1.7; max-width: 300px; margin-bottom: 24px; }
-        .social-links { display: flex; gap: 10px; }
+        .footer {
+            background: var(--ink);
+            color: rgba(250, 246, 239, 0.7);
+            padding: 90px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: var(--cream);
+            margin-bottom: 18px;
+        }
+
+        .footer-brand p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 300px;
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
         .social-link {
-            width: 40px; height: 40px;
-            background: rgba(250, 246, 239, 0.08); border-radius: 50%;
-            display: grid; place-items: center; font-size: 0.9rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(250, 246, 239, 0.08);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-        .social-link:hover { background: var(--terracotta); color: white; transform: translateY(-3px); }
-        .footer-col h4 { color: var(--cream); font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 20px; }
-        .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
-        .footer-col a { font-size: 0.9rem; transition: color 0.25s ease; }
+
+        .social-link:hover {
+            background: var(--terracotta);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: var(--cream);
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            font-size: 0.9rem;
+            transition: color 0.25s ease;
+        }
+
         .footer-col a:hover { color: var(--terracotta); }
+
         .newsletter {
             background: rgba(250, 246, 239, 0.06);
             border: 1px solid rgba(250, 246, 239, 0.1);
-            border-radius: var(--radius-md); padding: 20px; margin-top: 20px;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
         }
-        .newsletter p { font-size: 0.85rem; margin-bottom: 12px; }
-        .newsletter-form { display: flex; gap: 8px; }
+
+        .newsletter p {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
         .newsletter-form input {
-            flex: 1; padding: 10px 14px;
+            flex: 1;
+            padding: 10px 14px;
             background: rgba(250, 246, 239, 0.08);
             border: 1px solid rgba(250, 246, 239, 0.15);
-            border-radius: var(--radius-full); color: var(--cream);
-            font-family: var(--font-sans); font-size: 0.85rem;
+            border-radius: var(--radius-full);
+            color: var(--cream);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
         }
+
         .newsletter-form input::placeholder { color: rgba(250, 246, 239, 0.5); }
+
         .newsletter-form button {
-            padding: 10px 18px; background: var(--terracotta); color: white;
-            border: none; border-radius: var(--radius-full);
-            font-family: var(--font-sans); font-weight: 600; font-size: 0.85rem;
-            cursor: pointer; transition: background 0.3s ease;
+            padding: 10px 18px;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
+
         .newsletter-form button:hover { background: var(--terracotta-dark); }
+
         .footer-bottom {
-            padding-top: 30px; border-top: 1px solid rgba(250, 246, 239, 0.1);
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 16px; font-size: 0.82rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(250, 246, 239, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.82rem;
         }
+
         .footer-bottom a:hover { color: var(--terracotta); }
 
         /* ============================================
-           18. RESPONSIVE - BENTO GRID
+           18. RESPONSIVE DESIGN - IMPROVED MOBILE HERO
            ============================================ */
         @media (max-width: 1024px) {
             :root { --section-pad: 90px; }
-            .hero-grid { grid-template-columns: 1fr; gap: 50px; }
-            .hero-visual {
-                height: auto;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto;
-                max-width: 600px;
-                margin: 0 auto;
+
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                gap: 50px; 
             }
-            .bento-main { grid-column: 1 / -1; grid-row: auto; min-height: 280px; }
-            .bento-stats { grid-column: 1 / span 1; grid-row: auto; min-height: 180px; }
-            .bento-students { grid-column: 2 / span 1; grid-row: auto; min-height: 180px; }
-            .bento-flags { grid-column: 1 / span 1; grid-row: auto; min-height: 140px; }
-            .bento-rating { grid-column: 2 / span 1; grid-row: auto; min-height: 140px; }
+            
+            .hero-visual { 
+                height: auto;
+                min-height: 400px;
+                max-width: 500px; 
+                margin: 0 auto;
+                position: relative;
+            }
+            
+            /* Fix card positioning on tablet - remove rotations */
+            .hero-card {
+                position: relative;
+                transform: none !important;
+                margin-bottom: 15px;
+                width: 100% !important;
+                max-width: 400px;
+            }
+            
+            .hero-card.main {
+                height: auto;
+                min-height: 220px;
+                padding: 28px;
+                order: 1;
+            }
+            
+            .hero-card.secondary {
+                width: 100%;
+                max-width: 300px;
+                top: auto;
+                right: auto;
+                order: 2;
+                margin: 0 auto 15px;
+                padding: 20px;
+            }
+            
+            .hero-card.secondary .num {
+                font-size: 2.2rem;
+            }
+            
+            .hero-card.tertiary {
+                width: 100%;
+                max-width: 350px;
+                left: auto;
+                bottom: auto;
+                order: 3;
+                margin: 0 auto;
+                padding: 18px 24px;
+            }
+            
             .about-grid { grid-template-columns: 1fr; gap: 50px; }
             .lang-grid { grid-template-columns: repeat(3, 1fr); }
             .method-grid { grid-template-columns: repeat(2, 1fr); }
@@ -933,26 +1538,99 @@
 
         @media (max-width: 768px) {
             :root { --section-pad: 70px; }
+
             .nav-wrap { flex-direction: column; gap: 16px; padding: 16px 20px; }
             .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
-            .hero { padding: 50px 0 70px; }
-            .hero h1 { font-size: 2.4rem; }
-            .hero p { font-size: 1.05rem; }
 
-            .hero-visual {
-                grid-template-columns: 1fr;
-                gap: 14px;
-                max-width: 100%;
+            .hero { 
+                padding: 50px 0 70px;
+                overflow: visible;
             }
-            .bento { min-height: auto !important; }
-            .bento-main { padding: 28px 24px; }
-            .bento-main h3 { font-size: 1.6rem; }
-            .bento-main-icon { font-size: 2.4rem; }
-            .bento-stats-num { font-size: 2.6rem; }
-            .bento-rating-num { font-size: 1.6rem; }
+            
+            .hero h1 { 
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+            
+            .hero p {
+                font-size: 1.05rem;
+            }
+            
+            /* Mobile hero visual - stacked cards */
+            .hero-visual { 
+                height: auto;
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+            
+            .hero-card {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                transform: none !important;
+                margin: 0;
+                box-shadow: var(--shadow-md);
+            }
+            
+            .hero-card.main {
+                height: auto;
+                min-height: 180px;
+                padding: 24px;
+                order: 1;
+            }
+            
+            .hero-card.main h3 {
+                font-size: 1.3rem;
+            }
+            
+            .hero-card.main .lang-chip {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            
+            .hero-card.secondary {
+                width: 100%;
+                max-width: 100%;
+                order: 2;
+                padding: 18px 20px;
+            }
+            
+            .hero-card.secondary .num {
+                font-size: 1.8rem;
+            }
+            
+            .hero-card.secondary .label {
+                font-size: 0.8rem;
+            }
+            
+            .hero-card.tertiary {
+                width: 100%;
+                max-width: 100%;
+                order: 3;
+                padding: 16px 20px;
+            }
+            
+            .hero-card.tertiary .avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 0.7rem;
+            }
+            
+            .hero-card.tertiary .info strong {
+                font-size: 0.85rem;
+            }
+            
+            .hero-card.tertiary .info span {
+                font-size: 0.75rem;
+            }
 
             .trust-wrap { justify-content: center; text-align: center; }
             .trust-logos { justify-content: center; gap: 20px; }
+
             .lang-grid { grid-template-columns: repeat(2, 1fr); }
             .programs-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }
@@ -961,24 +1639,58 @@
             .testimonials-grid { grid-template-columns: 1fr; }
             .events-grid { grid-template-columns: 1fr; }
             .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+
             .cta-card { padding: 50px 24px; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            .hero-ctas { flex-direction: column; width: 100%; gap: 12px; }
-            .hero-ctas .btn { width: 100%; justify-content: center; padding: 14px 24px; }
+            .hero-ctas { 
+                flex-direction: column; 
+                width: 100%;
+                gap: 12px;
+            }
+            
+            .hero-ctas .btn { 
+                width: 100%; 
+                justify-content: center;
+                padding: 14px 24px;
+            }
+            
             .lang-grid { grid-template-columns: 1fr; }
             .method-grid { grid-template-columns: 1fr; }
             .teachers-grid { grid-template-columns: 1fr; }
             .about-stats { grid-template-columns: 1fr; gap: 16px; }
-            .cta-buttons { flex-direction: column; width: 100%; gap: 12px; }
-            .cta-buttons .btn { width: 100%; justify-content: center; }
+            
+            .cta-buttons { 
+                flex-direction: column; 
+                width: 100%;
+                gap: 12px;
+            }
+            
+            .cta-buttons .btn { 
+                width: 100%; 
+                justify-content: center;
+            }
+            
             .footer-grid { grid-template-columns: 1fr; }
-            .bento-main h3 { font-size: 1.4rem; }
-            .bento-lang-chips { gap: 6px; }
-            .bento-lang-chip { font-size: 0.7rem; padding: 5px 10px; }
+            
+            /* Further simplify hero cards on small mobile */
+            .hero-card.main .lang-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .hero-card.tertiary {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .hero-card.tertiary .avatars {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -1006,7 +1718,7 @@
     </header>
 
     <!-- ============================================
-         HERO SECTION — NEW BENTO GRID DESIGN
+         HERO SECTION — FIXED FOR MOBILE
          ============================================ -->
     <section class="hero">
         <div class="container">
@@ -1024,65 +1736,34 @@
                     </div>
                 </div>
 
-                <!-- NEW BENTO GRID VISUAL -->
+                <!-- Decorative stacked cards on the right -->
                 <div class="hero-visual">
-                    <!-- Main card: Globe / Languages -->
-                    <div class="bento bento-main">
-                        <div class="bento-main-header">
-                            <div>
-                                <div class="bento-main-label">Our Community</div>
-                            </div>
-                            <div class="bento-main-icon">🌍</div>
-                        </div>
+                    <div class="hero-card main">
+                        <div class="globe">🌍</div>
                         <div>
-                            <h3>12 languages.<br>One <em>community</em>.</h3>
-                            <div class="bento-lang-chips">
-                                <span class="bento-lang-chip">🇬🇧 English</span>
-                                <span class="bento-lang-chip">🇸 Español</span>
-                                <span class="bento-lang-chip">🇫🇷 Français</span>
-                                <span class="bento-lang-chip">🇯 日本語</span>
-                                <span class="bento-lang-chip">🇩🇪 Deutsch</span>
+                            <h3>12 languages.<br>One community.</h3>
+                            <div class="lang-row">
+                                <span class="lang-chip">🇬🇧 English</span>
+                                <span class="lang-chip">🇪🇸 Español</span>
+                                <span class="lang-chip">🇷 Français</span>
+                                <span class="lang-chip">🇯 日本語</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Stats card: 98% -->
-                    <div class="bento bento-stats">
-                        <div class="bento-stats-num">98%</div>
-                        <div class="bento-stats-label">Success Rate</div>
+                    <div class="hero-card secondary">
+                        <div class="num">98%</div>
+                        <div class="label">of students advance at least one CEFR level per semester</div>
                     </div>
-
-                    <!-- Students card -->
-                    <div class="bento bento-students">
-                        <div class="bento-students-header">
-                            <div class="bento-students-icon">👥</div>
-                            <div class="bento-students-title">Students</div>
+                    <div class="hero-card tertiary">
+                        <div class="avatars">
+                            <div class="avatar">A</div>
+                            <div class="avatar">M</div>
+                            <div class="avatar">K</div>
                         </div>
-                        <div class="bento-students-num">2,500+</div>
-                        <div class="bento-avatars">
-                            <div class="bento-avatar">A</div>
-                            <div class="bento-avatar">M</div>
-                            <div class="bento-avatar">K</div>
-                            <div class="bento-avatar">+</div>
+                        <div class="info">
+                            <strong>2,500+ students</strong>
+                            <span>from 40+ countries</span>
                         </div>
-                        <div class="bento-students-more">from 40+ countries</div>
-                    </div>
-
-                    <!-- Flags card -->
-                    <div class="bento bento-flags">
-                        <div class="bento-flags-icon"></div>
-                        <div class="bento-flags-content">
-                            <div class="bento-flags-title">Certified Programs</div>
-                            <div class="bento-flags-sub">Cambridge · DELE · JLPT</div>
-                        </div>
-                        <div class="bento-flags-arrow">→</div>
-                    </div>
-
-                    <!-- Rating card -->
-                    <div class="bento bento-rating">
-                        <div class="bento-rating-stars">★★★★★</div>
-                        <div class="bento-rating-num">4.9 / 5.0</div>
-                        <div class="bento-rating-text">Based on 1,200+ reviews</div>
                     </div>
                 </div>
             </div>
@@ -1108,7 +1789,7 @@
     </section>
 
     <!-- ============================================
-         ABOUT / OUR STORY
+         ABOUT / OUR STORY - WITH YOUR BANNER IMAGE
          ============================================ -->
     <section class="section" id="about">
         <div class="container">
@@ -1121,6 +1802,7 @@
                     <h2>More than a school — <em>a community</em> of language lovers.</h2>
                     <p>PrimeLanguages was founded on a simple belief: that learning a language should feel as natural as making a friend. For over 15 years, we've helped thousands of students — from 5-year-olds to 75-year-olds — find their voice in a new language.</p>
                     <p>Our teachers are native speakers, certified linguists, and passionate storytellers. Our classrooms are small, warm, and full of laughter. And our curriculum blends the best of communicative, immersive, and task-based methods so you don't just learn a language — you live it.</p>
+
                     <div class="about-stats">
                         <div class="about-stat">
                             <div class="num">15+</div>
@@ -1141,7 +1823,7 @@
     </section>
 
     <!-- ============================================
-         LANGUAGES OFFERED
+         LANGUAGES OFFERED (Expanded with levels)
          ============================================ -->
     <section class="section languages" id="languages">
         <div class="container">
@@ -1150,6 +1832,7 @@
                 <h2 class="section-title">Twelve languages. <em>One world</em> to explore.</h2>
                 <p class="section-sub">Every language we teach is led by a native-speaking expert. From global essentials to cultural treasures — find the one that speaks to you.</p>
             </div>
+
             <div class="lang-grid">
                 <div class="lang-card">
                     <div class="lang-flag">🇬🇧</div>
@@ -1159,7 +1842,7 @@
                     <div class="lang-meta"><span>Cambridge prep</span><span>★ Most popular</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇪🇸</div>
+                    <div class="lang-flag">🇸</div>
                     <div class="lang-name">Spanish</div>
                     <div class="lang-native">"¡Hola, ¿qué tal?!"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
@@ -1173,14 +1856,14 @@
                     <div class="lang-meta"><span>DELF/DALF</span><span>Business French</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇩🇪</div>
+                    <div class="lang-flag">🇪</div>
                     <div class="lang-name">German</div>
                     <div class="lang-native">"Hallo, wie geht's?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span></div>
                     <div class="lang-meta"><span>Goethe prep</span><span>Evening classes</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇹</div>
+                    <div class="lang-flag">🇮🇹</div>
                     <div class="lang-name">Italian</div>
                     <div class="lang-native">"Ciao, come stai?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span><span>B2</span></div>
@@ -1201,14 +1884,14 @@
                     <div class="lang-meta"><span>JLPT prep</span><span>Kanji club</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇨</div>
+                    <div class="lang-flag">🇨🇳</div>
                     <div class="lang-name">Mandarin</div>
                     <div class="lang-native">"你好"</div>
                     <div class="lang-levels"><span>HSK 1</span><span>HSK 2</span><span>HSK 3</span><span>HSK 4</span></div>
                     <div class="lang-meta"><span>Tones mastery</span><span>Calligraphy</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇷</div>
+                    <div class="lang-flag">🇰🇷</div>
                     <div class="lang-name">Korean</div>
                     <div class="lang-native">"안녕하세요"</div>
                     <div class="lang-levels"><span>TOPIK I</span><span>TOPIK II</span></div>
@@ -1222,14 +1905,14 @@
                     <div class="lang-meta"><span>Cyrillic bootcamp</span><span>Literature</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇸</div>
+                    <div class="lang-flag">🇸🇦</div>
                     <div class="lang-name">Arabic</div>
                     <div class="lang-native">"مرحبا"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span></div>
                     <div class="lang-meta"><span>MSA + dialects</span><span>Script workshop</span></div>
                 </div>
                 <div class="lang-card">
-                    <div class="lang-flag">🇳</div>
+                    <div class="lang-flag">🇳🇱</div>
                     <div class="lang-name">Dutch</div>
                     <div class="lang-native">"Hallo, hoe gaat het?"</div>
                     <div class="lang-levels"><span>A1</span><span>A2</span><span>B1</span></div>
@@ -1249,6 +1932,7 @@
                 <h2 class="section-title">Tailored learning for <em>every age</em>.</h2>
                 <p class="section-sub">Whether your child is just discovering words, or you're advancing your career — we have a program built specifically for you.</p>
             </div>
+
             <div class="programs-grid">
                 <div class="program-card">
                     <div class="program-icon">🧸</div>
@@ -1263,6 +1947,7 @@
                     </ul>
                     <a href="#contact" class="btn btn-dark">Learn More <span class="arrow">→</span></a>
                 </div>
+
                 <div class="program-card">
                     <div class="program-icon">🎓</div>
                     <div class="program-age">Ages 11 – 17</div>
@@ -1276,6 +1961,7 @@
                     </ul>
                     <a href="#contact" class="btn btn-dark">Learn More <span class="arrow">→</span></a>
                 </div>
+
                 <div class="program-card">
                     <div class="program-icon">💼</div>
                     <div class="program-age">Ages 18+</div>
@@ -1294,7 +1980,7 @@
     </section>
 
     <!-- ============================================
-         TEACHING METHODOLOGY
+         TEACHING METHODOLOGY (NEW)
          ============================================ -->
     <section class="section methodology">
         <div class="container">
@@ -1303,6 +1989,7 @@
                 <h2 class="section-title">How we get you <em>speaking</em> — fast.</h2>
                 <p class="section-sub">Our 4-pillar approach blends the best of modern language science with the warmth of a real classroom. Every lesson is designed around one goal: getting you to communicate.</p>
             </div>
+
             <div class="method-grid">
                 <div class="method-card">
                     <div class="method-num">01</div>
@@ -1329,7 +2016,7 @@
     </section>
 
     <!-- ============================================
-         PRICING PLANS
+         PRICING PLANS (NEW)
          ============================================ -->
     <section class="section pricing" id="pricing">
         <div class="container">
@@ -1338,6 +2025,7 @@
                 <h2 class="section-title">Simple, <em>transparent</em> plans.</h2>
                 <p class="section-sub">No hidden fees. No long-term contracts. Choose the plan that fits your goals — upgrade or pause anytime.</p>
             </div>
+
             <div class="pricing-grid">
                 <div class="price-card">
                     <div class="price-name">Starter</div>
@@ -1353,6 +2041,7 @@
                     </ul>
                     <a href="#contact" class="btn btn-ghost">Choose Starter</a>
                 </div>
+
                 <div class="price-card featured">
                     <div class="price-badge">Most Popular</div>
                     <div class="price-name">Accelerator</div>
@@ -1369,6 +2058,7 @@
                     </ul>
                     <a href="#contact" class="btn btn-terracotta">Choose Accelerator <span class="arrow">→</span></a>
                 </div>
+
                 <div class="price-card">
                     <div class="price-name">Intensive</div>
                     <div class="price-desc">Fast-track fluency</div>
@@ -1389,7 +2079,7 @@
     </section>
 
     <!-- ============================================
-         TEACHERS SHOWCASE
+         TEACHERS SHOWCASE (NEW)
          ============================================ -->
     <section class="section" id="teachers">
         <div class="container">
@@ -1398,27 +2088,40 @@
                 <h2 class="section-title">Native speakers. <em>Passionate</em> educators.</h2>
                 <p class="section-sub">Every teacher at PrimeLanguages is a certified native speaker with years of experience — and a genuine love for sharing their culture.</p>
             </div>
+
             <div class="teachers-grid">
                 <div class="teacher-card">
-                    <div class="teacher-photo">👩‍🏫<div class="teacher-flag">🇬🇧</div></div>
+                    <div class="teacher-photo">
+                        👩‍🏫
+                        <div class="teacher-flag">🇬🇧</div>
+                    </div>
                     <div class="teacher-name">Emma Thompson</div>
                     <div class="teacher-role">English · Cambridge Certified</div>
                     <div class="teacher-bio">10+ years teaching business & exam prep. Loves Shakespeare and strong coffee.</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-photo">👨‍🏫<div class="teacher-flag">🇪🇸</div></div>
+                    <div class="teacher-photo">
+                        👨‍🏫
+                        <div class="teacher-flag">🇪🇸</div>
+                    </div>
                     <div class="teacher-name">Carlos Rivera</div>
                     <div class="teacher-role">Spanish · Madrid Native</div>
                     <div class="teacher-bio">Former journalist turned teacher. Will teach you Spanish through flamenco and tapas.</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-photo">👩<div class="teacher-flag">🇷</div></div>
+                    <div class="teacher-photo">
+                        
+                        <div class="teacher-flag">🇷</div>
+                    </div>
                     <div class="teacher-name">Sophie Laurent</div>
                     <div class="teacher-role">French · Sorbonne Graduate</div>
                     <div class="teacher-bio">Literature PhD who makes Molière feel like a Netflix series. Specializes in teens.</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-photo">👨<div class="teacher-flag">🇵</div></div>
+                    <div class="teacher-photo">
+                        👨
+                        <div class="teacher-flag">🇯🇵</div>
+                    </div>
                     <div class="teacher-name">Kenji Tanaka</div>
                     <div class="teacher-role">Japanese · JLPT Examiner</div>
                     <div class="teacher-bio">Manga artist and certified JLPT examiner. Teaches kanji through storytelling.</div>
@@ -1428,7 +2131,7 @@
     </section>
 
     <!-- ============================================
-         EVENTS & WORKSHOPS
+         EVENTS & WORKSHOPS (NEW)
          ============================================ -->
     <section class="section events">
         <div class="container">
@@ -1437,6 +2140,7 @@
                 <h2 class="section-title">Learn beyond the <em>classroom</em>.</h2>
                 <p class="section-sub">Join our weekly conversation clubs, cultural workshops, and film nights. Language lives outside the textbook.</p>
             </div>
+
             <div class="events-grid">
                 <div class="event-card featured">
                     <div class="event-date">📅 Saturday, July 26 · 6:00 PM</div>
@@ -1445,7 +2149,7 @@
                     <div class="event-meta">
                         <span>📍 Main Classroom</span>
                         <span>⏱ 3 hours</span>
-                        <span> $25 (includes food)</span>
+                        <span>💰 $25 (includes food)</span>
                     </div>
                 </div>
                 <div class="event-card">
@@ -1480,6 +2184,7 @@
                 <h2 class="section-title">Loved by learners of <em>all ages</em>.</h2>
                 <p class="section-sub">Don't just take our word for it — hear from the students and parents who've made PrimeLanguages part of their journey.</p>
             </div>
+
             <div class="testimonials-grid">
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
@@ -1492,6 +2197,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
                     <p class="testimonial-text">"I needed French for my job relocation and PrimeLanguages got me to B2 in just 8 months. The structured approach and native teachers made all the difference."</p>
@@ -1503,6 +2209,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
                     <p class="testimonial-text">"As a teen, I was nervous about learning Japanese. But the classes are so engaging — I passed my JLPT N4 and now I'm preparing for N3. Best decision ever!"</p>
@@ -1519,7 +2226,7 @@
     </section>
 
     <!-- ============================================
-         FAQ
+         FAQ (NEW)
          ============================================ -->
     <section class="section faq" id="faq">
         <div class="container">
@@ -1530,6 +2237,7 @@
                     <p class="section-sub">Can't find what you're looking for? Our team is happy to help — just send us a message.</p>
                     <a href="#contact" class="btn btn-dark" style="margin-top: 24px;">Contact Us <span class="arrow">→</span></a>
                 </div>
+
                 <div class="faq-list">
                     <div class="faq-item">
                         <div class="faq-q">Do I need any prior experience to join?</div>
@@ -1579,7 +2287,7 @@
     </section>
 
     <!-- ============================================
-         FOOTER
+         FOOTER (Expanded)
          ============================================ -->
     <footer class="footer">
         <div class="container">
@@ -1597,6 +2305,8 @@
                         <a href="#" class="social-link" aria-label="YouTube">▶</a>
                         <a href="#" class="social-link" aria-label="TikTok">♪</a>
                     </div>
+
+                    <!-- Newsletter signup -->
                     <div class="newsletter">
                         <p><strong style="color: var(--cream);">Join our newsletter</strong><br>Get free language tips & event invites.</p>
                         <form class="newsletter-form" onsubmit="event.preventDefault();">
@@ -1605,6 +2315,7 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="footer-col">
                     <h4>Programs</h4>
                     <ul>
@@ -1615,6 +2326,7 @@
                         <li><a href="#">Exam Prep</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <h4>Languages</h4>
                     <ul>
@@ -1626,6 +2338,7 @@
                         <li><a href="#">All 12 →</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
@@ -1636,6 +2349,7 @@
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
@@ -1646,6 +2360,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div>© 2026 PrimeLanguages. All rights reserved.</div>
                 <div>
